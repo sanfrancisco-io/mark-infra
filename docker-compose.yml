@@ -112,10 +112,10 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
-  # ─── Frontend (placeholder) ──────────────────────────────────────────────────
   frontend:
-    image: nginx:alpine
+    build:
+      context: ../marketplace-frontend
+      dockerfile: Dockerfile
     ports:
       - "${FRONTEND_PORT:-3000}:80"
     depends_on:
